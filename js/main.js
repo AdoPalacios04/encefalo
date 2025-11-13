@@ -35,13 +35,16 @@ loader.setDRACOLoader(dracoLoader);
 
 //Load the file
 loader.load(
-  `./models/${objToRender}.glb`,
+  `./models/${objToRender}/encefalo.glb`,
   function (gltf) {
     //If the file is loaded, add it to the scene
     object = gltf.scene;
     object.scale.set(0.4, 0.4, 0.4); // Make it 8x bigger
     scene.add(object);
     console.log("3D model loaded successfully");
+    
+    //Hide the loading spinner
+    document.getElementById('loading-spinner').classList.add('hidden');
   },
   function (xhr) {
     //While it is loading, log the progress
